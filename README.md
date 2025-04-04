@@ -1,4 +1,4 @@
-# cs0451-news-verifier
+# cs0451-facial-detection
 By Cameron Hudson, Robsan Dinka, and Emmanuel Towner
 
 ## Abstract
