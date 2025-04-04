@@ -14,16 +14,17 @@ The goal is to create a deep learning model that can accurately detect faces in 
 
 ## Resources Required
 
- 
+Our data is from Kaggle's [Face-Detection-Dataset](https://www.kaggle.com/datasets/fareselmenshawii/face-detection-dataset) that our model will be train on. The libraries we will use are PyTorch and Jupyter Notebook. If we need more computational power, we can use ADA's GPU resources to train our model.
 
 ## What You Will Learn
 
-Emmanuel will learn how to create and implement a convolution neural betwork (CNN) to use for facial recognition.
+Emmanuel will learn how to create and implement a convolution neural betwork (CNN) to use for facial recognition using PyTorch.
 
 ## Risk Statement
 
+
 ## Ethics Statement
 
-
+1. Biggest benefactors are the government and tech companies that are centered around using cameras for biometrics or security.
 
 ## Tentative Timeline
