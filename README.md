@@ -3,27 +3,26 @@ By Cameron Hudson, Robsan Dinka, and Emmanuel Towner
 
 ## Abstract
 
-A test push to see if this works.
 
 ## Motivation and Question
 
-There are many ways traditional password systems can get stolen and grant hackers unauthorized access to our private information and assets. Therefore, another method of security is necessary, such as biometrics. We have a dataset of images that contain faces and images that do not contain faces. These will be used to implement a neural network that can identify faces in images and webcams which will be useful implementing biometric security.
+We have a dataset that contains facial and non-facial images. These will be used to train a neural network that can identify
+faces in images and webcams which will be useful security devices.
 
 ## Planned Deliverables
 
 
 ## Resources Required
 
-Our data is from Kaggle's [Face-Detection-Dataset](https://www.kaggle.com/datasets/fareselmenshawii/face-detection-dataset) that our model will be train on. The libraries we will use are PyTorch, Jupyter Notebook, and OpenCV.
+Our data is from Kaggle's [Face-Detection-Dataset](https://www.kaggle.com/datasets/fareselmenshawii/face-detection-dataset) that our model will be train on. The libraries we will use are PyTorch and Jupyter Notebook.
 
 ## What You Will Learn
 
-1. Emmanuel Towner: Learn how to create a CNN and use a webcam for facial recognition.
 
 ## Risk Statement
 
-1. We may not have the computational power to train and test our model efficiently.
-2. The process to transform our static image algorithm to utilize webcams may be more involved than intially thought.
+1. The process to transform our static image algorithm to utilize webcams may be more involved than intially thought.
+2. There is a risk that data has very homogenous facial images therefore making it unsuccessful in identifying diverse groups of people. 
 
 ## Ethics Statement
 
