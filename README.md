@@ -7,7 +7,7 @@ The problem we are attempting to solve is the improvement of automated security 
 
 ## Motivation and Question
 
-We have a Kaggle dataset that contains 16,700 facial and non-facial images scraped from Google Open Images. The dataset is divided into training and validation CSV files. These images will be used to train a convolutional neural network (CNN) designed to identify faces in images and webcam feeds. This algorithm could be particularly useful for security applications, allowing cameras to detect individuals who enter unauthorized areas, such as a store after it has closed, or for home security purposes.
+We have a Kaggle dataset that contains 16,700 facial scraped from Google Open Images. The dataset is divided into training and validation CSV files. These images will be used to train a convolutional neural network (CNN) designed to identify faces in images and webcam feeds. This algorithm could be particularly useful for security applications, allowing cameras to detect individuals who enter unauthorized areas, such as a store after it has closed, or for home security purposes.
 
 ## Planned Deliverables
 
