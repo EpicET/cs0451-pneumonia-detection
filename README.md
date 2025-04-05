@@ -46,3 +46,6 @@ While making this project, we are assuming that people who use our model will do
 
 
 ## Tentative Timeline
+For Week 3: Implementation of convolutional neural network is in a working, runnable state.
+
+For Week 6: Our implementation of the convolutional neural network is trained on images, and able to classify images in pictures and video streams.
