@@ -4,7 +4,7 @@ By Cameron Hudson, Robsan Dinka, and Emmanuel Towner
 ## Abstract
 
 
-The problem we are attempting to solve is the improvement of automated security systems using facial detection. There are alot of security usages for being able to detect faces in images and video streams, such as detecting when a person is in an unauthorized area, home security and more.The approach we are doing to solve this problem is to implement a Convolutional Neural Network and train it on a face detection dataset. To assess the model's accuracy, we will be looking for 80-85% accuracy on testing data. 
+The problem we are attempting to solve is the improvement of automated security systems using facial detection. There are alot of security usages for being able to detect faces in images and video streams, such as detecting when a person is in an unauthorized area, home security and more. The approach we are doing to solve this problem is to create and train machine learning algorithm to detect faces in images, and learn how to integrate this algorithm in face detection in video streams. To assess the model's accuracy, we will make a train-test split on our data and  will be looking for 80-85% accuracy on testing data. 
 
 
 ## Motivation and Question
