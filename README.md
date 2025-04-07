@@ -13,7 +13,7 @@ We have a Kaggle dataset that contains 16,700 facial scraped from Google Open Im
 ## Planned Deliverables
 Our project at its finished state will include a documented python package containing the code for the implementation and analysis of our convolutional neural network and camera integration, as well as a jupyter netwoork illustrating our codes usage.
 
-Full success: In a full success scenario, we will deliver a real-time ilmage detection algorithm, which can utilize a camera to detect and trace a face within a video stream.
+Full success: In a full success scenario, we will deliver a real-time image detection algorithm, which can utilize a camera to detect and trace a face within a video stream.
 
 Partial success: In a partial success scenario. Our algorithm will be able to classify images as containing or not containing a face with 80-85% accuracy.
 
@@ -38,11 +38,17 @@ Emmanuel Towner: Has a high-level understanding of how neural networks work, and
 2. There is a risk that the data consists of very homogeneous facial images, which could hinder our ability to accurately identify diverse groups of people 
 
 ## Ethics Statement
-Using our facial detection system, we will be able to detect faces in images and videos. This can be used for various purposes, such as security, surveillance, and even social media applications. Our model will be able to detect faces in real-time, which can be useful for video conferencing and live streaming. However, we must be cautions that our model is not used to violate privacy by collecting data without consent. Overall, our model will be more useful than harmful, as it can be used to improve security and enhance user experience in various applications.
+1. Our model will benefit companies involved in home security, surveillance, and even social media platforms. These companies can use our model to enhance their security systems which will make homeowners feel more secure. For example, home security companies can use our model to detect intruders in real-time and alert homeowners. Social media platforms can use our model to enhance user experience by providing filters and effects that modify faces in images and videos.
+2. On the other hand, our model may exclude benefit or even harm marginalized groups, general public, and activists. For example, our model may have higher error rates for marginalized groups if our training data is not reflective of the population it is used on. Additionally, our model may be used to collect data on individuals without their consent, violating their privacy. This can be especially harmful for activists and protesters who may be targeted by law enforcement agencies.
+3. There are many applications of facial detection systems such as facial recognition, photo filters, surveillance and more. Overall, our model will be more beneficial than harmful, because it will improve security. However, we must be cautious about the ethical implications because it can be used to violate privacy. We believe that the increased security our model brings outweighs the potential harm caused by enhanced by facial data collection. 
 
-While making this project, we are assuming that people who use our model will do so ethically and responsibly. Another assumption that we are making is that our model will be able to detect faces accurately reguardless of lighting, race, and other factors. 
+The following are assumptions that we have made while doing this project:
+* People who use our model will do so ethically and responsibly (ie. no data collection without consent, no tracking, respect privacy, etc.)
+* Our model will be able to detect faces accurately regardless of race, gender, lighting, and other factors.
+* The cameras capture clear images and videos.
+* The data used to train our model is diverse and representative of the population it is being used on
 
-1. The biggest benefactors are commercial companies, as they could use the model to provide additional security to their services. Customers are also potential benefactors as their data might be more secure. 
+
 
 
 ## Tentative Timeline
