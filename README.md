@@ -34,6 +34,8 @@ Cameron Hudson: Specifically interested in learning how we will use the algorith
 
 Emmanuel Towner: Has a high-level understanding of how neural networks work, and is interesting in how convolution neural networks differ from regular neural networks. Also wants to get better at the git command line.
 
+Lia Smith: has a little experience with convolutional layers but is very excited to work more with them in an unsupervised learning framework. Additionally, is excited in encoding video data. 
+
 ## Risk Statement
 
 1. Transforming our static image algorithm to work with webcams may be more complex than we originally anticipated.  
