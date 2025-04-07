@@ -3,15 +3,17 @@ By Cameron Hudson, Robsan Dinka, and Emmanuel Towner
 
 ## Abstract
 
-The problem we are attempting to solve is the improvement of automated security systems using facial detection. There are alot of security usages for being able to detect faces in images and video streams, such as detecting when a person is in an unauthorized area, home security and more.The approach we are doing to solve this problem is to implement a Convolutional Neural Network and train it on a face detection dataset. To assess the model's accuracy, we will be looking for 80-85% accuracy on testing data. 
+The problem we are attempting to solve is the improvement of automated security systems using facial detection. There are alot of security usages for being able to detect faces in images and video streams, such as detecting when a person is in an unauthorized area, home security and more. The approach we are doing to solve this problem is to create and train machine learning algorithm to detect faces in images, and learn how to integrate this algorithm in face detection in video streams. To assess the model's accuracy, we will make a train-test split on our data and  will be looking for 80-85% accuracy on testing data. 
+
 
 ## Motivation and Question
 
 We have a Kaggle dataset that contains 16,700 facial scraped from Google Open Images. The dataset is divided into training and validation CSV files. These images will be used to train a convolutional neural network (CNN) designed to identify faces in images and webcam feeds. This algorithm could be particularly useful for security applications, allowing cameras to detect individuals who enter unauthorized areas, such as a store after it has closed, or for home security purposes.
 
 ## Planned Deliverables
+Our project at its finished state will include a documented python package containing the code for the implementation and analysis of our convolutional neural network and camera integration, as well as a jupyter netwoork illustrating our codes usage.
 
-Full success: In a full success scenario, we will deliver a real-time image detection algorithm, which can utilize a camera to detect and trace a face within a video stream.
+Full success: In a full success scenario, we will deliver a real-time ilmage detection algorithm, which can utilize a camera to detect and trace a face within a video stream.
 
 Partial success: In a partial success scenario. Our algorithm will be able to classify images as containing or not containing a face with 80-85% accuracy.
 
@@ -44,3 +46,6 @@ While making this project, we are assuming that people who use our model will do
 
 
 ## Tentative Timeline
+For Week 3: Implementation of convolutional neural network is in a working, runnable state.
+
+For Week 6: Our implementation of the convolutional neural network is trained on images, and able to classify images in pictures and video streams.
