@@ -3,8 +3,7 @@ By Cameron Hudson, Robsan Dinka, and Emmanuel Towner
 
 ## Abstract
 
-
-The problem we are attempting to solve is the improvement of automated security systems using facial detection. There are alot of security usages for being able to detect faces in images and video streams, such as detecting when a person is in an unauthorized area, home security and more.The approach we are doing to solve this problem is to implement a Convolutional Neural Network and train it on a face detection dataset. To assess the model's accuracy, we will be looking for 80-85% accuracy on testing data. 
+The problem we are attempting to solve is the improvement of automated security systems using facial detection. There are alot of security usages for being able to detect faces in images and video streams, such as detecting when a person is in an unauthorized area, home security and more. The approach we are doing to solve this problem is to create and train machine learning algorithm to detect faces in images, and learn how to integrate this algorithm in face detection in video streams. To assess the model's accuracy, we will make a train-test split on our data and  will be looking for 80-85% accuracy on testing data. 
 
 
 ## Motivation and Question
@@ -13,8 +12,9 @@ We have a dataset that contains facial and non-facial images. These will be used
 faces in images and webcams which will be useful security devices.
 
 ## Planned Deliverables
+Our project at its finished state will include a documented python package containing the code for the implementation and analysis of our convolutional neural network and camera integration, as well as a jupyter netwoork illustrating our codes usage.
 
-Full success: In a full success scenario, we will deliver a real-time image detection algorithm, which can utilize a camera to detect and trace a face within a video stream.
+Full success: In a full success scenario, we will deliver a real-time ilmage detection algorithm, which can utilize a camera to detect and trace a face within a video stream.
 
 Partial success: In a partial success scenario. Our algorithm will be able to classify images as containing or not containing a face with 80-85% accuracy.
 
@@ -29,7 +29,6 @@ its application in facial detection.
 Robsan Dinka: Specifically intrested in the math that goes into the implementation of a convolutional neural network, and wants to improve their skills with git command line. 
 Cameron Hudson: Specifically interested in learning how we will use the algorithm to detect faces in a video stream, how to utilize our laptop's built-in camera and use our algorithm implementation in tandem. 
 Emmanuel Towner: Has a high-level understanding of how neural networks work, and is interesting in how convolution neural networks differ from regular neural networks. Also wants to get better at the git command line.
-
 
 
 ## Risk Statement
@@ -52,3 +51,6 @@ The following are assumptions that we have made while doing this project:
 
 
 ## Tentative Timeline
+For Week 3: Implementation of convolutional neural network is in a working, runnable state.
+
+For Week 6: Our implementation of the convolutional neural network is trained on images, and able to classify images in pictures and video streams.
