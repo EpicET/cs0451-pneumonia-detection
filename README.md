@@ -14,7 +14,7 @@ faces in images and webcams which will be useful security devices.
 ## Planned Deliverables
 Our project at its finished state will include a documented python package containing the code for the implementation and analysis of our convolutional neural network and camera integration, as well as a jupyter netwoork illustrating our codes usage.
 
-Full success: In a full success scenario, we will deliver a real-time ilmage detection algorithm, which can utilize a camera to detect and trace a face within a video stream.
+Full success: In a full success scenario, we will deliver a real-time image detection algorithm, which can utilize a camera to detect and trace a face within a video stream.
 
 Partial success: In a partial success scenario. Our algorithm will be able to classify images as containing or not containing a face with 80-85% accuracy.
 
