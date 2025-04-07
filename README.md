@@ -17,6 +17,8 @@ Full success: In a full success scenario, we will deliver a real-time image dete
 
 Partial success: In a partial success scenario. Our algorithm will be able to classify images as containing or not containing a face with 80-85% accuracy.
 
+model fairness: evaluating the fairness of the model via false positive rates and sufficiency of factors such as race.
+
 ## Resources Required
 
 Our data is from Kaggle's [Face-Detection-Dataset](https://www.kaggle.com/datasets/fareselmenshawii/face-detection-dataset) that our model will be trained on. The tools we will use are PyTorch and Jupyter Notebook.
