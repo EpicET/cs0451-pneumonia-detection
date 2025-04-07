@@ -17,7 +17,7 @@ Partial success: In a partial success scenario. Our algorithm will be able to cl
 
 ## Resources Required
 
-Our data is from Kaggle's [Face-Detection-Dataset](https://www.kaggle.com/datasets/fareselmenshawii/face-detection-dataset) that our model will be train on. The tools we will use are PyTorch and Jupyter Notebook.
+Our data is from Kaggle's [Face-Detection-Dataset](https://www.kaggle.com/datasets/fareselmenshawii/face-detection-dataset) that our model will be trained on. The tools we will use are PyTorch and Jupyter Notebook.
 
 ## What You Will Learn
 
