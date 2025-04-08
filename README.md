@@ -1,5 +1,5 @@
 # cs0451-facial-detection
-By Cameron Hudson, Robsan Dinka, and Emmanuel Towner
+By Cameron Hudson, Robsan Dinka, Lia Smith, and Emmanuel Towner
 
 ## Abstract
 
