@@ -1,4 +1,4 @@
-# cs0451-facial-detection
+# cs0451-pneumonia-detection
 By Cameron Hudson, Robsan Dinka, Lia Smith, and Emmanuel Towner
 
 ## Abstract
@@ -11,22 +11,21 @@ The problem we are attempting to solve is the improvement of automated security 
 We have a Kaggle dataset that contains 16,700 facial scraped from Google Open Images. The dataset is divided into training and validation CSV files. These images will be used to train a convolutional neural network (CNN) designed to identify faces in images and webcam feeds. This algorithm could be particularly useful for security applications, allowing cameras to detect individuals who enter unauthorized areas, such as a store after it has closed, or for home security purposes.
 
 ## Planned Deliverables
-Our project at its finished state will include a documented python package containing the code for the implementation and analysis of our convolutional neural network and camera integration, as well as a jupyter netwoork illustrating our codes usage.
+Our project at its finished state will include a documented python package containing the code for the implementation and analysis of our convolutional neural network, as well as a jupyter netwoork illustrating our codes usage.
 
 Full success: In a full success scenario, we will deliver a real-time image detection algorithm, which can utilize a camera to detect and trace a face within a video stream.
 
-Partial success: In a partial success scenario. Our algorithm will be able to classify images as containing or not containing a face with 80-85% accuracy.
+Partial success: In a partial success scenario. Our algorithm will be able to classify whether the lungs in the x-ray images are normal or show signs of pneumonia with an 80-85% accuracy.
 
 model fairness: evaluating the fairness of the model via false positive rates and sufficiency of factors such as race.
 
 ## Resources Required
 
-Our data is from Kaggle's [Face-Detection-Dataset](https://www.kaggle.com/datasets/fareselmenshawii/face-detection-dataset) that our model will be trained on. The tools we will use are PyTorch and Jupyter Notebook.
+Our data is from Kaggle's [Chest X-Ray Images (Pneumonia)](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia) that our model will be trained on. The tools we will use are PyTorch and Jupyter Notebook.
 
 ## What You Will Learn
 
-We all intend to improve our skills using Git version control, improve our teamworking skills, and learn the implementation of a convolutional neural network and
-its application in facial detection.
+We all intend to improve our skills using Git version control, improve our teamworking skills, and learn the implementation of a convolutional neural network and its application in facial detection.
 
 Robsan Dinka: Specifically intrested in the math that goes into the implementation of a convolutional neural network, and wants to improve their skills with git command line.
 
@@ -34,7 +33,7 @@ Cameron Hudson: Specifically interested in learning how we will use the algorith
 
 Emmanuel Towner: Has a high-level understanding of how neural networks work, and is interesting in how convolution neural networks differ from regular neural networks. Also wants to get better at the git command line.
 
-Lia Smith: has a little experience with convolutional layers but is very excited to work more with them in an unsupervised learning framework. Additionally, is excited in encoding video data. 
+Lia Smith: Has a little experience with convolutional layers but is very excited to work more with them in an unsupervised learning framework. Additionally, is excited in encoding video data. 
 
 ## Risk Statement
 
@@ -56,6 +55,6 @@ The following are assumptions that we have made while doing this project:
 
 
 ## Tentative Timeline
-For Week 3: Implementation of convolutional neural network is in a working, runnable state.
+For Week 3: Implementation of convolutional neural network with the classifiers is in a working, runnable state.
 
-For Week 6: Our implementation of the convolutional neural network is trained on images, and able to classify images in pictures and video streams.
+For Week 6: Our implementation of the convolutional neural network is trained on images, and is able to classify peneumonia and non-pneumonia images.
