@@ -5,10 +5,9 @@ By Cameron Hudson, Robsan Dinka, Lia Smith, and Emmanuel Towner
 
 The problem we are attempting to solve is the improvement of automated security systems using facial detection. There are alot of security usages for being able to detect faces in images and video streams, such as detecting when a person is in an unauthorized area, home security and more. The approach we are doing to solve this problem is to create and train machine learning algorithm to detect faces in images, and learn how to integrate this algorithm in face detection in video streams. To assess the model's accuracy, we will make a train-test split on our data and  will be looking for 80-85% accuracy on testing data. 
 
-
 ## Motivation and Question
 
-We have a Kaggle dataset that contains 16,700 facial scraped from Google Open Images. The dataset is divided into training and validation CSV files. These images will be used to train a convolutional neural network (CNN) designed to identify faces in images and webcam feeds. This algorithm could be particularly useful for security applications, allowing cameras to detect individuals who enter unauthorized areas, such as a store after it has closed, or for home security purposes.
+We have a Kaggle dataset that contains 5,863 X-ray images. The dataset is divided into training and validation folders, within each folder are subfolders correlating to each category (Pneumonia/Normal). These images will be used to train a convolutional neural network (CNN) designed to detect pneumonia in X-ray images. This algorithm could be particularly useful for healthcare applications. In this implementation it makes identifing pneumonia easier and more efficient for doctors. But when expanded upon could possibly make identifying other diseases simpler.
 
 ## Planned Deliverables
 Our project at its finished state will include a documented python package containing the code for the implementation and analysis of our convolutional neural network, as well as a jupyter netwoork illustrating our codes usage.
@@ -17,7 +16,6 @@ Full success: In a full success scenario, we will deliver a real-time image dete
 
 Partial success: In a partial success scenario. Our algorithm will be able to classify whether the lungs in the x-ray images are normal or show signs of pneumonia with an 80-85% accuracy.
 
-model fairness: evaluating the fairness of the model via false positive rates and sufficiency of factors such as race.
 
 ## Resources Required
 
@@ -25,7 +23,7 @@ Our data is from Kaggle's [Chest X-Ray Images (Pneumonia)](https://www.kaggle.co
 
 ## What You Will Learn
 
-We all intend to improve our skills using Git version control, improve our teamworking skills, and learn the implementation of a convolutional neural network and its application in facial detection.
+We all intend to improve our skills using Git version control, improve our teamworking skills, and learn the implementation of a convolutional neural network and its application in healthcare.
 
 Robsan Dinka: Specifically intrested in the math that goes into the implementation of a convolutional neural network, and wants to improve their skills with git command line.
 
@@ -37,8 +35,8 @@ Lia Smith: Has a little experience with convolutional layers but is very excited
 
 ## Risk Statement
 
-1. Transforming our static image algorithm to work with webcams may be more complex than we originally anticipated.  
-2. There is a risk that the data consists of very homogeneous facial images, which could hinder our ability to accurately identify diverse groups of people 
+1. Creating a CNN and then connecting to various classification models might more difficult than expected.  
+2. There is a risk that the data consists of very homogeneous facial images, which could hinder our ability to accurately identify diverse groups of people. 
 
 ## Ethics Statement
 1. Our model will benefit companies involved in home security, surveillance, and even social media platforms. These companies can use our model to enhance their security systems which will make homeowners feel more secure. For example, home security companies can use our model to detect intruders in real-time and alert homeowners. Social media platforms can use our model to enhance user experience by providing filters and effects that modify faces in images and videos.
