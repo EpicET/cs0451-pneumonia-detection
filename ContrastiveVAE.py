@@ -53,22 +53,6 @@ class ContrastiveVAE(nn.Module):
         x_recon = self.decode(z)
         return x_recon, mu, logvar
     
-    def supervised_contrastive_loss(embeddings, labels, temperature=0.1):
-    #contrastive loss function for VAE
-
-        device = embeddings.device
-        labels = labels.contiguous().view(-1, 1)
-        mask = torch.eq(labels, labels.T).float().to(device)
-
-        dot_product = (embeddings @ embeddings.T) / temperature
-        logits_max, _ = torch.max(dot_product, dim=1, keepdim=True)
-        logits = dot_product - logits_max.detach()
-
-        exp_logits = torch.exp(logits) * (1 - torch.eye(len(labels), device=device))
-        log_prob = logits - torch.log(exp_logits.sum(1, keepdim=True) + 1e-8)
-
-        mean_log_prob_pos = (mask * log_prob).sum(1) / mask.sum(1)
-        loss = -mean_log_prob_pos.mean()
-        return loss
+    
 
 
