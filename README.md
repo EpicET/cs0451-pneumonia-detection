@@ -1,4 +1,4 @@
-# cs0451-facial-detection
+# cs0451-pneumonia-detection
 By Cameron Hudson, Robsan Dinka, Lia Smith, and Emmanuel Towner
 
 ## Abstract
