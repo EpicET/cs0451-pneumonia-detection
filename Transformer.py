@@ -7,14 +7,14 @@ class Transformer(nn.Module):
     Args:
         input_dim (int): The dimensionality of the input features.
         num_patches (int): The number of patches (sequence length) in the input.
-        num_heads (int): The number of attention heads in the multi-head attention mechanism.
         output_dim (int): The dimensionality of the output (number of classes for classification).
-        hidden_dim (int): The dimensionality of the hidden representation.
-        dropout (float): Dropout rate applied in the encoder layers.
-        num_layers (int, optional): The number of encoder layers in the Transformer. Default is 6.
+        num_heads (int, optional): The number of attention heads in the multi-head attention mechanism.
+        hidden_dim (int, optional): The dimensionality of the hidden representation.
+        dropout (float, optional): Dropout rate applied in the encoder layers.
+        num_layers (int, optional): The number of encoder layers in the Transformer. 
     """
-    def __init__(self, input_dim: int, num_patches: int, num_heads: int, 
-                 output_dim: int, hidden_dim: int, dropout: float, num_layers: int = 6):
+    def __init__(self, input_dim: int, num_patches: int,  output_dim: int, num_heads: int = 3,
+                hidden_dim: int = 128, dropout: float = 0, num_layers: int = 6):
 
         super(Transformer, self).__init__()
         
@@ -68,7 +68,7 @@ class Transformer(nn.Module):
 class EncoderLayer(nn.Module):
     def __init__(self, hidden_dim: int, num_heads: int, dropout: float):
         """
-        Initializes the Transformer module.
+        Initializes the Encoder module.
         Args:
             hidden_dim (int): The dimensionality of the hidden layers.
             num_heads (int): The number of attention heads in the multi-head attention mechanism.
