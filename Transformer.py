@@ -40,13 +40,13 @@ class Transformer(nn.Module):
         # Classifier
         self.classifier = nn.Linear(hidden_dim, output_dim)
        
-    def forward(self, x: torch.Tensor):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
         Forward pass of the Transformer model.
         Args:
-            x (torch.Tensor): 
+            x (torch.Tensor): Input tensor of 
         Returns:
-            torch.Tensor:
+            y_hat (torch.Tensor): Output tensor
         """
         # Creates a fake sequence so that the input can be passed to the transformer
         if x.dim() == 2:
@@ -70,47 +70,6 @@ class Transformer(nn.Module):
         
         output = output[:, 0]  # Get the class token output
         return self.classifier(output)
-
-    def fit(self, X_train, y_train, device: torch.device, epochs: int = 3, batch_size: int = 32, lr: float = 1e-3):
-        """
-        Fit the Transformer model to the training data.
-        
-        Args:
-            X_train (np.ndarray or torch.Tensor): Training features.
-            y_train (np.ndarray or torch.Tensor): Training labels.
-            device (torch.device): Device to train on.
-            epochs (int): Number of epochs.
-            batch_size (int): Batch size.
-            lr (float): Learning rate.
-        """
-        # Convert to torch tensors if needed
-        X = torch.tensor(X_train, dtype=torch.float32).to(device)  # [vectors, dim]
-        y = torch.tensor(y_train, dtype=torch.long).to(device)  # [labels]
-
-        criterion = nn.CrossEntropyLoss()
-        optimizer = torch.optim.Adam(self.parameters(), lr=lr)
-        self.train()
-
-        for epoch in range(epochs):
-            total_loss = 0
-            i = 0
-            # Simulates batch loading method without dataloader
-            while i < X.shape[0]: 
-                # Create batches
-                x_batch = X[i:i + batch_size]
-                y_batch = y[i:i + batch_size]
-
-                optimizer.zero_grad()
-                outputs = self(x_batch)
-                loss = criterion(outputs, y_batch)
-                loss.backward()
-                optimizer.step()
-
-                total_loss += loss.item()
-                i += batch_size
-
-            avg_loss = total_loss / (X.shape[0] // batch_size)
-            print(f"Epoch {epoch+1}/{epochs} - Loss: {avg_loss:.4f}")
 
     
 class EncoderLayer(nn.Module):
@@ -139,7 +98,7 @@ class EncoderLayer(nn.Module):
             nn.Dropout(dropout)
         )
         
-    def forward(self, x: torch.Tensor):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
         Performs the forward pass of the Transformer block.
         Args:
