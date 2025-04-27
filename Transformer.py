@@ -13,8 +13,8 @@ class Transformer(nn.Module):
         dropout (float, optional): Dropout rate applied in the encoder layers.
         num_layers (int, optional): The number of encoder layers in the Transformer. 
     """
-    def __init__(self, input_dim: int, num_patches: int,  output_dim: int, num_heads: int = 3,
-                hidden_dim: int = 128, dropout: float = 0, num_layers: int = 6):
+    def __init__(self, input_dim: int, num_patches: int,  output_dim: int, num_heads: int = 2,
+                hidden_dim: int = 64, dropout: float = 0, num_layers: int = 6):
 
         super(Transformer, self).__init__()
         
@@ -44,15 +44,21 @@ class Transformer(nn.Module):
         """
         Forward pass of the Transformer model.
         Args:
-            x (torch.Tensor): Input tensor of shape (batch_size, sequence_length, input_dim).
+            x (torch.Tensor): 
         Returns:
-            torch.Tensor: Output tensor of shape (batch_size, num_classes) representing 
-                          the classification logits for each input in the batch.
+            torch.Tensor:
         """
-
-        tokens = self.linear_mapper(x)
-        tokens = torch.cat((self.class_token.expand(x.size(0), 1, -1), tokens), dim=1)
+        # Creates a fake sequence so that the input can be passed to the transformer
+        if x.dim() == 2:
+            x = x.unsqueeze(1)  # (batch_size, 1, input_dim)
         
+        batch_size = x.shape[0]
+        tokens = self.linear_mapper(x) # (batch_size, num_patches, hidden_dim)
+        
+        # Add class token to the input sequence
+        class_tokens = self.class_token.expand(batch_size, -1).unsqueeze(1) # (batch_size, 1, hidden_dim)
+        tokens = torch.cat((class_tokens, tokens), dim=1) # (batch_size, num_patches + 1, hidden_dim)
+
         # Add positional encoding
         output = tokens + self.pos_embedding
         
