@@ -102,9 +102,9 @@ class EncoderLayer(nn.Module):
         """
         Performs the forward pass of the Transformer block.
         Args:
-            x (torch.Tensor): Input tensor of shape (batch_size, sequence_length, input_dim).
+            x (torch.Tensor): Input tensor of shape (batch_size, sequence_length, hidden_dim).
         Returns:
-            torch.Tensor: Output tensor of the same shape as the input (batch_size, sequence_length, input_dim).
+            torch.Tensor: Output tensor of the same shape as the input (batch_size, sequence_length, hidden_dim).
         """
         
         # Transpose for MultiheadAttention: (B, S, E) -> (S, B, E)
