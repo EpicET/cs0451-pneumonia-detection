@@ -52,8 +52,10 @@ class Transformer(nn.Module):
         if x.dim() == 2:
             x = x.unsqueeze(1)  # (batch_size, 1, input_dim)
         
-        batch_size = x.shape[0]
+        # Maps the vector corresponding to each patch to the hidden size dimension
         tokens = self.linear_mapper(x) # (batch_size, num_patches, hidden_dim)
+        
+        batch_size = x.shape[0]
         
         # Add class token to the input sequence
         class_tokens = self.class_token.expand(batch_size, -1).unsqueeze(1) # (batch_size, 1, hidden_dim)
@@ -69,8 +71,48 @@ class Transformer(nn.Module):
         output = output[:, 0]  # Get the class token output
         return self.classifier(output)
 
- 
-  
+    def fit(self, X_train, y_train, device: torch.device, epochs: int = 3, batch_size: int = 32, lr: float = 1e-3):
+        """
+        Fit the Transformer model to the training data.
+        
+        Args:
+            X_train (np.ndarray or torch.Tensor): Training features.
+            y_train (np.ndarray or torch.Tensor): Training labels.
+            device (torch.device): Device to train on.
+            epochs (int): Number of epochs.
+            batch_size (int): Batch size.
+            lr (float): Learning rate.
+        """
+        # Convert to torch tensors if needed
+        X = torch.tensor(X_train, dtype=torch.float32).to(device)  # [vectors, dim]
+        y = torch.tensor(y_train, dtype=torch.long).to(device)  # [labels]
+
+        criterion = nn.CrossEntropyLoss()
+        optimizer = torch.optim.Adam(self.parameters(), lr=lr)
+        self.train()
+
+        for epoch in range(epochs):
+            total_loss = 0
+            i = 0
+            # Simulates batch loading method without dataloader
+            while i < X.shape[0]: 
+                # Create batches
+                x_batch = X[i:i + batch_size]
+                y_batch = y[i:i + batch_size]
+
+                optimizer.zero_grad()
+                outputs = self(x_batch)
+                loss = criterion(outputs, y_batch)
+                loss.backward()
+                optimizer.step()
+
+                total_loss += loss.item()
+                i += batch_size
+
+            avg_loss = total_loss / (X.shape[0] // batch_size)
+            print(f"Epoch {epoch+1}/{epochs} - Loss: {avg_loss:.4f}")
+
+    
 class EncoderLayer(nn.Module):
     def __init__(self, hidden_dim: int, num_heads: int, dropout: float):
         """
@@ -82,10 +124,12 @@ class EncoderLayer(nn.Module):
         """
         super().__init__()
         
+        # Multihead Attention 
         self.attention = nn.MultiheadAttention(hidden_dim, num_heads, dropout=dropout)
         self.norm1 = nn.LayerNorm(hidden_dim)
         self.norm2 = nn.LayerNorm(hidden_dim)
         
+        # Feed Forward Network
         self.feed_forward = nn.Sequential(
             nn.Linear(hidden_dim, hidden_dim),
             nn.ReLU(),
