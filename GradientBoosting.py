@@ -14,12 +14,6 @@ class GradientBoost():
     #     #Still needs to get a random score?
     #     #And then do the dot product of score and X vector, perhaps?
 
-
-
-
-
-
-    
 # Here, we need to compute the loss function
 #
     def loss(X):
@@ -27,11 +21,14 @@ class GradientBoost():
         #First do log odds
         # We are trying to get the average of all the good and bad cases, the same as the mean in a regression problem
         # y such that y = 1 (malignant)
-        # malignant = y.float.mean()
-        # # y such that y = 0 (benign)
-        # benign = 1 - malignant
-        # # Then you can get log odds
-        # log_odds = log(maligant/benign)
-        # prob_malignant = np.exp(log_odds) / (1 + np.exp(log_odds))
-        # residual = 
-    
+        malignant = y.float.mean()
+        # y such that y = 0 (benign)
+        benign = 1 - malignant
+        # Then you can get log odds
+        log_odds = np.log(malignant/benign)
+        prob_malignant = np.exp(log_odds) / (1 + np.exp(log_odds))
+        # Need to make pseudo residual = observed - predicted (probability)
+        # This is just the loss function
+        # Using binary cross entropy??? Because the two classes are benign or malignant
+        #Cnn's have the ability to process and extract features, then those features will be in X_train with the label y_train...
+        #Afterwards it will be like any normal model creation
