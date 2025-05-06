@@ -1,34 +1,39 @@
-# How would i even start something like this...
-#Takes in a feature vector X and a label vector y and performs gradient boosting on it 
 import torch 
 import numpy as np 
+from sklearn.tree import DecisionTreeRegressor
 
-class GradientBoost():
-    def __init__(self):
-        self.w = None
-    #initalize some weight vector, this will be predicted by thre 
-    #Lets think about the vector i should be expecting
-    # a bunch of vectors for the images
-    # each image gets a vector of features
-    # def score(self, X):
-    #     #Still needs to get a random score?
-    #     #And then do the dot product of score and X vector, perhaps?
+class GradientBoostClassifier:
+    def __init__(self, num_iterations, learning_rate, max_depth):
+        self.log_odds = None
+        self.num_iterations = num_iterations
+        self.learning_rate = learning_rate
+        self.max_depth = max_depth
+        self.trees = []
 
-# Here, we need to compute the loss function
-#
-    def loss(X):
-        #What algorithm are we using, likely to be cross-entropy since this is a binary classification problem
-        #First do log odds
-        # We are trying to get the average of all the good and bad cases, the same as the mean in a regression problem
-        # y such that y = 1 (malignant)
-        malignant = y.float.mean()
-        # y such that y = 0 (benign)
-        benign = 1 - malignant
-        # Then you can get log odds
-        log_odds = np.log(malignant/benign)
-        prob_malignant = np.exp(log_odds) / (1 + np.exp(log_odds))
-        # Need to make pseudo residual = observed - predicted (probability)
-        # This is just the loss function
-        # Using binary cross entropy??? Because the two classes are benign or malignant
-        #Cnn's have the ability to process and extract features, then those features will be in X_train with the label y_train...
-        #Afterwards it will be like any normal model creation
+    def sigmoid(x):
+        return 1 / (1 + torch.exp(-x))
+
+    def fit(self, X, y):
+        self.prediction_0 = torch.log(y.mean() / (1-y.mean()))
+        Fm = np.full(y.shape, self.prediction_0)
+    
+        for _ in range(self.num_iterations):
+            prob_pneumonia = self.sigmoid(Fm)
+            gradient = y - prob_pneumonia #Observed - Predicted
+            tree = DecisionTreeRegressor(max_depth=self.mex_depth) # Weak learner
+            tree.fit(X, gradient)
+            tree_output = tree.predict(X)
+            Fm += self.learning_rate * tree_output
+            self.trees.append(tree)
+        self.Fm = Fm
+    
+    def predict_proba(self, X):
+        Fm = torch.full(X.shape[0], self.prediction_0)
+        for tree in self.trees: #Iterate through weak learners: this is the boosting process
+            Fm += self.learning_rate * tree.predict(X)
+        return self.sigmoid(Fm)
+
+    def predict(self, X):
+        proba = self.predict_proba(X)
+        return (proba >= 0.5).float()
+        
