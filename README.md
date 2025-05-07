@@ -7,7 +7,7 @@ This project addresses the problem of automating pneumonia diagnosis using chest
 
 ## Motivation and Question
 
-We have a Kaggle dataset that contains 5,863 X-ray images. The dataset is divided into training and validation folders, within each folder are subfolders correlating to each category (Pneumonia/Normal). These images will be used to train a convolutional neural network (CNN) designed to detect pneumonia in X-ray images. This algorithm could be particularly useful for healthcare applications. In this implementation it makes identifing pneumonia easier and more efficient for doctors. But when expanded upon could possibly make identifying other diseases simpler.
+We have a Kaggle dataset that contains 5,863 X-ray images. The dataset is divided into training and validation folders, within each folder are subfolders correlating to each category (Pneumonia/Normal). These images will be used to train a convolutional neural network (CNN) designed to detect pneumonia in X-ray images. This algorithm could be particularly useful for healthcare applications. In this implementation it makes identifying pneumonia easier and more efficient for doctors. But when expanded upon could possibly make identifying other diseases simpler.
 
 ## Planned Deliverables
 
@@ -63,4 +63,4 @@ The following assumptions underlie our ethical stance:
 ## Tentative Timeline
 For Week 3: Implementation of convolutional neural network with the classifiers is in a working, runnable state.
 
-For Week 6: Our implementation of the convolutional neural network is trained on images, and is able to classify peneumonia and non-pneumonia images.
+For Week 6: Our implementation of the convolutional neural network is trained on images, and is able to classify pneumonia and non-pneumonia images.
