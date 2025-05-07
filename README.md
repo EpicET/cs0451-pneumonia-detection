@@ -63,4 +63,4 @@ The following assumptions underlie our ethical stance:
 ## Tentative Timeline
 For Week 3: Implementation of convolutional neural network with the classifiers is in a working, runnable state.
 
-For Week 6: Our implementation of the convolutional neural network is trained on images, and is able to classify peneumonia and non-pneumonia images.
+For Week 6: Our implementation of the convolutional neural network is trained on images, and is able to classify pneumonia and non-pneumonia images.
