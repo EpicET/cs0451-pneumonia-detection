@@ -40,7 +40,7 @@ Lia Smith: Has a little experience with convolutional layers but is very excited
 
 1. The learned latent features might not provide clear separability between pneumonia and normal cases, limiting classifier performance.
 
-2. High computational requirements for training VAEs and transformers could exceed available resources, especially with cross-validation or hyperparameter tuning.
+2. High computational requirements for training VAEs and transformers could exceed available resources.
 
 
 ## Ethics Statement
