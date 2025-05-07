@@ -3,30 +3,30 @@ By Cameron Hudson, Robsan Dinka, Lia Smith, and Emmanuel Towner
 
 ## Abstract
 
-The problem we are attempting to solve is the improvement of automated security systems using facial detection. There are alot of security usages for being able to detect faces in images and video streams, such as detecting when a person is in an unauthorized area, home security and more. The approach we are doing to solve this problem is to create and train machine learning algorithm to detect faces in images, and learn how to integrate this algorithm in face detection in video streams. To assess the model's accuracy, we will make a train-test split on our data and  will be looking for 80-85% accuracy on testing data. 
-
+This project addresses the problem of automating pneumonia diagnosis using chest X-ray images. We propose a deep learning approach using convolutional and variational autoencoders, along with supervised contrastive learning, to extract meaningful latent representations of X-ray images for disease classification. Our pipeline evaluates the effectiveness of these representations using dimensionality reduction (PCA), logistic regression, and transformer-based classifiers. Success will be measured by classification accuracy and separation of normal vs. pneumonia classes in latent space visualizations.
 
 ## Motivation and Question
 
-We have a Kaggle dataset that contains 16,700 facial scraped from Google Open Images. The dataset is divided into training and validation CSV files. These images will be used to train a convolutional neural network (CNN) designed to identify faces in images and webcam feeds. This algorithm could be particularly useful for security applications, allowing cameras to detect individuals who enter unauthorized areas, such as a store after it has closed, or for home security purposes.
+We have a Kaggle dataset that contains 5,863 X-ray images. The dataset is divided into training and validation folders, within each folder are subfolders correlating to each category (Pneumonia/Normal). These images will be used to train a convolutional neural network (CNN) designed to detect pneumonia in X-ray images. This algorithm could be particularly useful for healthcare applications. In this implementation it makes identifying pneumonia easier and more efficient for doctors. But when expanded upon could possibly make identifying other diseases simpler.
 
 ## Planned Deliverables
-Our project at its finished state will include a documented python package containing the code for the implementation and analysis of our convolutional neural network and camera integration, as well as a jupyter netwoork illustrating our codes usage.
 
-Full success: In a full success scenario, we will deliver a real-time image detection algorithm, which can utilize a camera to detect and trace a face within a video stream.
+We will deliver:
+* A documented Python package.
+* Jupyter notebooks demonstrating model performance, latent space visualizations, and evaluation metrics.
 
-Partial success: In a partial success scenario. Our algorithm will be able to classify images as containing or not containing a face with 80-85% accuracy.
+Full Success: We achieve 85%+ classification accuracy on the test set, clear PCA/3D latent space separation of classes, and demonstrate transferability of learned embeddings to multiple classifiers (logistic regression and transformer).
 
-model fairness: evaluating the fairness of the model via false positive rates and sufficiency of factors such as race.
+Partial Success: We demonstrate that contrastive VAE representations contain disease-relevant structure, even if classification performance is modest (70–80%).
+
 
 ## Resources Required
 
-Our data is from Kaggle's [Face-Detection-Dataset](https://www.kaggle.com/datasets/fareselmenshawii/face-detection-dataset) that our model will be trained on. The tools we will use are PyTorch and Jupyter Notebook.
+Our data is from Kaggle's [Chest X-Ray Images (Pneumonia)](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia) that our model will be trained on. The tools we will use are PyTorch and Jupyter Notebook.
 
 ## What You Will Learn
 
-We all intend to improve our skills using Git version control, improve our teamworking skills, and learn the implementation of a convolutional neural network and
-its application in facial detection.
+We all intend to improve our skills using Git version control, improve our teamworking skills, and learn the implementation of a convolutional neural network and its application in healthcare.
 
 Robsan Dinka: Specifically intrested in the math that goes into the implementation of a convolutional neural network, and wants to improve their skills with git command line.
 
@@ -34,28 +34,33 @@ Cameron Hudson: Specifically interested in learning how we will use the algorith
 
 Emmanuel Towner: Has a high-level understanding of how neural networks work, and is interesting in how convolution neural networks differ from regular neural networks. Also wants to get better at the git command line.
 
-Lia Smith: has a little experience with convolutional layers but is very excited to work more with them in an unsupervised learning framework. Additionally, is excited in encoding video data. 
+Lia Smith: Has a little experience with convolutional layers but is very excited to work more with them in an unsupervised learning framework. Additionally, is excited in encoding video data. 
 
 ## Risk Statement
 
-1. Transforming our static image algorithm to work with webcams may be more complex than we originally anticipated.  
-2. There is a risk that the data consists of very homogeneous facial images, which could hinder our ability to accurately identify diverse groups of people 
+1. The learned latent features might not provide clear separability between pneumonia and normal cases, limiting classifier performance.
+
+2. High computational requirements for training VAEs and transformers could exceed available resources.
+
 
 ## Ethics Statement
-1. Our model will benefit companies involved in home security, surveillance, and even social media platforms. These companies can use our model to enhance their security systems which will make homeowners feel more secure. For example, home security companies can use our model to detect intruders in real-time and alert homeowners. Social media platforms can use our model to enhance user experience by providing filters and effects that modify faces in images and videos.
-2. On the other hand, our model may exclude benefit or even harm marginalized groups, general public, and activists. For example, our model may have higher error rates for marginalized groups if our training data is not reflective of the population it is used on. Additionally, our model may be used to collect data on individuals without their consent, violating their privacy. This can be especially harmful for activists and protesters who may be targeted by law enforcement agencies.
-3. There are many applications of facial detection systems such as facial recognition, photo filters, surveillance and more. Overall, our model will be more beneficial than harmful, because it will improve security. However, we must be cautious about the ethical implications because it can be used to violate privacy. We believe that the increased security our model brings outweighs the potential harm caused by enhanced by facial data collection. 
+1. Our model is designed to benefit healthcare professionals and institutions by supporting the early detection of pneumonia from chest X-rays. This can reduce diagnostic delays, improve treatment outcomes, and relieve pressure on radiologists in resource-constrained settings. It may also support telemedicine services in remote or underserved areas.
 
-The following are assumptions that we have made while doing this project:
-* People who use our model will do so ethically and responsibly (ie. no data collection without consent, no tracking, respect privacy, etc.)
-* Our model will be able to detect faces accurately regardless of race, gender, lighting, and other factors.
-* The cameras capture clear images and videos.
-* The data used to train our model is diverse and representative of the population it is being used on
+2. On the other hand, the model may inadvertently harm certain groups if the training data is not sufficiently representative. For instance, if the dataset contains disproportionate samples by age, gender, race, or comorbid conditions, the model may underperform on underrepresented patients. Misdiagnosis due to such bias could lead to inappropriate treatment decisions or missed interventions, especially in clinical settings where human oversight is minimal.
+
+3. While our model is not intended to replace medical professionals, overreliance on AI by non-specialists could lead to misuse or blind trust in algorithmic outputs. Additionally, storing and processing medical imagery introduces risks around data privacy and security, particularly if used in real-world deployments without rigorous compliance with healthcare data regulations (e.g., HIPAA, GDPR).
+
+The following assumptions underlie our ethical stance:
+
+* The model will be deployed as an assistive tool, with final diagnostic decisions made by certified medical professionals.
+* The dataset used for training is sufficiently diverse and reflects the populations on which the model will be applied.
+* Any real-world deployment of this model will include transparency about its limitations and be subject to continuous validation.
+* Patient data used in training and testing has been anonymized and collected with proper consent.
 
 
 
 
 ## Tentative Timeline
-For Week 3: Implementation of convolutional neural network is in a working, runnable state.
+For Week 3: Implementation of convolutional neural network with the classifiers is in a working, runnable state.
 
-For Week 6: Our implementation of the convolutional neural network is trained on images, and able to classify images in pictures and video streams.
+For Week 6: Our implementation of the convolutional neural network is trained on images, and is able to classify pneumonia and non-pneumonia images.
