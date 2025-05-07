@@ -1,5 +1,5 @@
-# How would i even start something like this...
-#Takes in a feature vector X and a label vector y and performs gradient boosting on it 
+# This module implements a gradient boosting classifier using decision trees as weak learners.
+# It takes a feature vector X and a label vector y, and performs gradient boosting to fit the model.
 import torch 
 from sklearn.tree import DecisionTreeRegressor
 import numpy as np
