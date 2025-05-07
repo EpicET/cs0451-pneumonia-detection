@@ -1,8 +1,11 @@
+# How would i even start something like this...
+#Takes in a feature vector X and a label vector y and performs gradient boosting on it 
 import torch 
-import numpy as np 
 from sklearn.tree import DecisionTreeRegressor
+import numpy as np
 
-class GradientBoostClassifier:
+
+class GradientBoostClassifier():
     def __init__(self, num_iterations, learning_rate, max_depth):
         self.log_odds = None
         self.num_iterations = num_iterations
@@ -10,30 +13,27 @@ class GradientBoostClassifier:
         self.max_depth = max_depth
         self.trees = []
 
-    def sigmoid(x):
+    def sigmoid(self, x):
         return 1 / (1 + torch.exp(-x))
 
     def fit(self, X, y):
-        self.prediction_0 = torch.log(y.mean() / (1-y.mean()))
-        Fm = np.full(y.shape, self.prediction_0)
+        X_np = X.numpy()
+        y_np = y.numpy().astype(float).squeeze()
+
+        prob_pneumonia = np.mean(y_np)
+        self.log_odds = torch.tensor(np.log(prob_pneumonia/(1-prob_pneumonia)))
+        preds = torch.squeeze(torch.full_like(y, self.log_odds))
     
-        for _ in range(self.num_iterations):
-            prob_pneumonia = self.sigmoid(Fm)
-            gradient = y - prob_pneumonia #Observed - Predicted
-            tree = DecisionTreeRegressor(max_depth=self.mex_depth) # Weak learner
-            tree.fit(X, gradient)
-            tree_output = tree.predict(X)
-            Fm += self.learning_rate * tree_output
+        for _ in range(self.num_iterations): #Create regression tree weak learners, 
+
+            pseudo_residuals = torch.squeeze(y) - self.sigmoid(preds)
+            tree = DecisionTreeRegressor(max_depth=self.max_depth) 
+            tree.fit(X_np, pseudo_residuals.numpy())
             self.trees.append(tree)
-        self.Fm = Fm
-    
-    def predict_proba(self, X):
-        Fm = torch.full(X.shape[0], self.prediction_0)
-        for tree in self.trees: #Iterate through weak learners: this is the boosting process
-            Fm += self.learning_rate * tree.predict(X)
-        return self.sigmoid(Fm)
+            preds += self.learning_rate * torch.tensor(tree.predict(X_np))
 
     def predict(self, X):
-        proba = self.predict_proba(X)
-        return (proba >= 0.5).float()
-        
+        preds = torch.full((X.shape[0],), self.log_odds)
+        for tree in self.trees:
+            preds += self.learning_rate * torch.tensor(tree.predict(X.numpy()))
+        return (torch.sigmoid(preds) > 0.5).float()
