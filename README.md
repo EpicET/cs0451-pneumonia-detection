@@ -37,6 +37,15 @@ As demonstrated before, the models contained much higher precision rates than re
 
 The project accomblished many of the goals that we set out to accomblish during the duration of this project and also failed to meet others. We got a working convolutional neurlal network to embed the images and learn important features of those images. We correctly identify 93% of all pneumonia cases. On the other hand, We correctly identify less than half of all normal cases. This project demonstrates the difficulty of complex machine learning tasks without good computational resources. Running and auditing the cnn alone takes two hours per run with a GPU. Due to this contraint, we were unable to readily take advantage of all of the data available. Additionally, the binary classifcation models also took 5-15 minutes depending on the model. The most apparent hurdle in this project was creating a complex model while also being able to run it in a reasonable amount of time. Other pneumonia binary classification projects are able to get higher accuracy through the usage of premade Resnet models. These models are trained on millions of images and use residual connections to improve the performance of neural networks. If we had more time, we would do a more thorough error analysis of misclassified normal images to understand what features the model is missing and improve the architecture to capture that feature. Additionally, we would utilize more of the training data without run-time constriants and try adopting residual neural network arhitecture to improve performance.
 
+## Group Contributions:
+Emmanuel: Set up most of the Github, worked on the Transformer
+Cameron: Worked on the Introduction, Abstract, and Values statement of the Blog Post in addition to the Support Vector Machine
+Robsan: Worked on the XGBooste Model
+Lia: Worked on evaluation metrics for the models, embedding the images, conclusions, results, methods, materials, and group contributions. 
+
+
+
+
 
 
 
