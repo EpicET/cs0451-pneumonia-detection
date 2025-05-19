@@ -6,18 +6,11 @@ By Cameron Hudson, Robsan Dinka, Lia Smith, and Emmanuel Towner
 Within our blog post, we created a neural network and implemented three different binary classifers trained on chest x-ray image data to detect pneumonia based on images. We used convolution layers to convert images into latent vectors by which we could feed into our various machine learning models: a transformer, an SVM, and a gradient boosting model. Through analyzing the accuracy of each model, we discovered a similar accuracy between the models of around 75% on testing data.
 
 ## Introduction
+Within our project, we wanted to compare 3 seperate binary classification machine learning models, seeing which is best for an image classification task. Our project attempts to uncover what types of algorithms are best for binary image classification tasks using the pneumonia chest xray dataset, with our models being trained to discern pneumonia based on chest xray images only. This dataset demonstrates a case where finding the most optimal image classifcation algorithm is very important as it could result in saving a life. Our research could also inform which types of algorithms should be considered other important image classification tasks. Within [MobileNet Pneumonia Classification (2023 study)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10252226/), the researchers mainly focus on deep learning algorithms to tackle this same image classification task. Through their research, they discovered the MobileNet CCN gave the best accuracy on two datasets with values of 94.23% and 93.75%. In another study titled [CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning](https://arxiv.org/pdf/1711.05225), researchers create their own CNN known as CheXNet that detects pneumonia as well as other chest related illnesses (fibrosis, hernia, etc.) that which accuracies ranging from 0.7 to 0.9. With such a large focus on CNNs for this image classification, ww wanted to determine if other kinds of algorithms good for binary classifcation could also be useful image classifiers.  
 
 ## Values Statement
-Our project at its finished state will include a documented python package containing the code for the implementation and analysis of our convolutional neural network and camera integration, as well as a jupyter netwoork illustrating our codes usage.
-
-Full success: In a full success scenario, we will deliver a real-time image detection algorithm, which can utilize a camera to detect and trace a face within a video stream.
-
-Partial success: In a partial success scenario. Our algorithm will be able to classify images as containing or not containing a face with 80-85% accuracy.
-
-model fairness: evaluating the fairness of the model via false positive rates and sufficiency of factors such as race.
 
 ## Resources Required
-
 Our data is from Kaggle's [Chest X-Ray Images (Pneumonia) Dataset](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia) that our model will be trained on. The tools we will use are PyTorch and Jupyter Notebook.
 
 ## What You Will Learn
