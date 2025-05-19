@@ -20,7 +20,6 @@ Our group personally enjoyed and had an interest in each of the algorithms that 
 Based on our experiments, we believe if our project can help inform image classification tasks, especially those in the medical field, then the world can become a better place by being able to help people detect illnesses earlier and possibly save lives.
 
 ## Materials
-
 Our data comes from the Pneumonia Chest X-ray dataset on Kaggle. This data came from the Guangzhou Women and Children’s Medical Center. Samples were collected from patients and labels were created by pneumonia specialists, with two specialists making labels and then a third corroborating the label of normal or pneumonia. Our data lacks information regarding the severity or time span of the pneumonia for positive cases, meaning that the model has no clear way of understanding which X-rays should be encoded closer or further away from the normal cases. Additionally, the dataset has a 64% / 36% split, with the majority of X-rays containing positive cases of pneumonia. This bias happens to work out well for mitigating false negatives; however, it makes models have more difficulty understanding when an X-ray is normal.
 
 ## Methods
