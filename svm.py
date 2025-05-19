@@ -34,14 +34,12 @@ class SVM:
 
             # Randomly select a batch of samples
             A = torch.randint(0, s, (self.batch_size,))
-            Ap = []
             ap_sum = 0
             nu = 1 / (self.lam * t)
             for i in A:
                 x_i = X[i]
                 y_i = y_[i]
                 if (y_i * self.score(x_i) < 1):
-                    Ap.append(i.item())
                     ap_sum += y_i * x_i
                 else: 
                     continue
