@@ -5,7 +5,7 @@ By Cameron Hudson, Robsan Dinka, Lia Smith, and Emmanuel Towner
 ## Abstract
 
 [Our-Project](https://github.com/EpicET/cs0451-pneumonia-detection)
-Within our blog post, we created a neural network and implemented three different binary classifers trained on chest x-ray image data to detect pneumonia based on images. We used convolution layers to convert images into latent vectors by which we could feed into our various machine learning models: a transformer, an SVM, and a gradient boosting model. Through analyzing the accuracy of each model, we discovered a similar accuracy between the models of around 78% on testing data.
+Within our blog post, we created a neural network and implemented three different binary classifiers trained on chest x-ray image data to detect pneumonia based on images. We used convolution layers to convert images into latent vectors by which we could feed into our various machine learning models: a transformer, an SVM, and a gradient boosting model. Through analyzing the accuracy of each model, we discovered a similar accuracy between the models of around 78% on testing data.
 
 ## Introduction
 
