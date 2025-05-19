@@ -29,7 +29,8 @@ In our convolutional neural network for embedding the chest xrays, we utilized a
 ## Results 
 <img width="262" alt="image" src="https://github.com/user-attachments/assets/2bd2c6ef-4d1a-4994-ad37-e454924eee0d" />
 <img width="463" alt="image" src="https://github.com/user-attachments/assets/897d1e6c-110d-4291-bec7-f3ea6cc16fc5" />
-As iterated before, the models contained much higher precision rates than recall in order to catch more of the positive pneumonia cases due to their costliness as compared to the costs associated with missing a normal case. Within the models, The transformer did the best, with the highest Recall and Precision of 93% and 41% respectively. The F-1 Score of 57% suggests that the model was beginning to learn differences between the classes but still encountered much difficulty. This is also present the the 3-D PCA plot of the latent vectors where it becomes evident that many of the embeddings are caught in an overlapping region where both classes meet. The results suggest that the image embeddings need more fine tuning to increase accuracy and recall.
+
+As demonstrated before, the models contained much higher precision rates than recall in order to catch more of the positive pneumonia cases due to their costliness as compared to the costs associated with missing a normal case. Within the models, The transformer did the best, with the highest Recall and Precision of 93% and 41% respectively. The F-1 Score of 57% suggests that the model was beginning to learn differences between the classes but still encountered much difficulty. This is also present the the 3-D PCA plot of the latent vectors where it becomes evident that many of the embeddings are caught in an overlapping region where both classes meet. The results suggest that the image embeddings need more fine tuning to increase accuracy and recall.
 
 
 
