@@ -30,44 +30,13 @@ In our convolutional neural network for embedding the chest xrays, we utilized a
 <img width="262" alt="image" src="https://github.com/user-attachments/assets/2bd2c6ef-4d1a-4994-ad37-e454924eee0d" />
 <img width="463" alt="image" src="https://github.com/user-attachments/assets/897d1e6c-110d-4291-bec7-f3ea6cc16fc5" />
 
-As demonstrated before, the models contained much higher precision rates than recall in order to catch more of the positive pneumonia cases due to their costliness as compared to the costs associated with missing a normal case. Within the models, The transformer did the best, with the highest Recall and Precision of 93% and 41% respectively. The F-1 Score of 57% suggests that the model was beginning to learn differences between the classes but still encountered much difficulty. This is also present the the 3-D PCA plot of the latent vectors where it becomes evident that many of the embeddings are caught in an overlapping region where both classes meet. The results suggest that the image embeddings need more fine tuning to increase accuracy and recall.
+As demonstrated before, the models contained much higher precision rates than recall in order to catch more of the positive pneumonia cases due to their costliness as compared to the costs associated with missing a normal case. Within the models, The transformer did the best, with the highest Recall and Precision of 93% and 41% respectively. The F-1 Score of 57% suggests that the model was beginning to learn differences between the classes but still encountered much difficulty. This is also present the the 3-D PCA plot of the latent vectors where it becomes evident that many of the embeddings are caught in an overlapping region where both classes meet. The results suggest that the image embeddings need more fine tuning to increase accuracy and recall. 
+
+
+## Conclusions
+
+The project accomblished many of the goals that we set out to accomblish during the duration of this project and also failed to meet others. We got a working convolutional neurlal network to embed the images and learn important features of those images. We correctly identify 93% of all pneumonia cases. On the other hand, We correctly identify less than half of all normal cases. This project demonstrates the difficulty of complex machine learning tasks without good computational resources. Running and auditing the cnn alone takes two hours per run with a GPU. Due to this contraint, we were unable to readily take advantage of all of the data available. Additionally, the binary classifcation models also took 5-15 minutes depending on the model. The most apparent hurdle in this project was creating a complex model while also being able to run it in a reasonable amount of time. Other pneumonia binary classification projects are able to get higher accuracy through the usage of premade Resnet models. These models are trained on millions of images and use residual connections to improve the performance of neural networks. If we had more time, we would do a more thorough error analysis of misclassified normal images to understand what features the model is missing and improve the architecture to capture that feature. Additionally, we would utilize more of the training data without run-time constriants and try adopting residual neural network arhitecture to improve performance.
 
 
 
 
-## What You Will Learn
-
-We all intend to improve our skills using Git version control, improve our teamworking skills, and learn the implementation of a convolutional neural network and
-its application in facial detection.
-
-Robsan Dinka: Specifically intrested in the math that goes into the implementation of a convolutional neural network, and wants to improve their skills with git command line.
-
-Cameron Hudson: Specifically interested in learning how we will use the algorithm to detect faces in a video stream, how to utilize our laptop's built-in camera and use our algorithm implementation in tandem. 
-
-Emmanuel Towner: Has a high-level understanding of how neural networks work, and is interesting in how convolution neural networks differ from regular neural networks. Also wants to get better at the git command line.
-
-Lia Smith: has a little experience with convolutional layers but is very excited to work more with them in an unsupervised learning framework. Additionally, is excited in encoding video data. 
-
-## Risk Statement
-
-1. Transforming our static image algorithm to work with webcams may be more complex than we originally anticipated.  
-2. There is a risk that the data consists of very homogeneous facial images, which could hinder our ability to accurately identify diverse groups of people 
-
-## Ethics Statement
-1. Our model will benefit companies involved in home security, surveillance, and even social media platforms. These companies can use our model to enhance their security systems which will make homeowners feel more secure. For example, home security companies can use our model to detect intruders in real-time and alert homeowners. Social media platforms can use our model to enhance user experience by providing filters and effects that modify faces in images and videos.
-2. On the other hand, our model may exclude benefit or even harm marginalized groups, general public, and activists. For example, our model may have higher error rates for marginalized groups if our training data is not reflective of the population it is used on. Additionally, our model may be used to collect data on individuals without their consent, violating their privacy. This can be especially harmful for activists and protesters who may be targeted by law enforcement agencies.
-3. There are many applications of facial detection systems such as facial recognition, photo filters, surveillance and more. Overall, our model will be more beneficial than harmful, because it will improve security. However, we must be cautious about the ethical implications because it can be used to violate privacy. We believe that the increased security our model brings outweighs the potential harm caused by enhanced by facial data collection. 
-
-The following are assumptions that we have made while doing this project:
-* People who use our model will do so ethically and responsibly (ie. no data collection without consent, no tracking, respect privacy, etc.)
-* Our model will be able to detect faces accurately regardless of race, gender, lighting, and other factors.
-* The cameras capture clear images and videos.
-* The data used to train our model is diverse and representative of the population it is being used on
-
-
-
-
-## Tentative Timeline
-For Week 3: Implementation of convolutional neural network is in a working, runnable state.
-
-For Week 6: Our implementation of the convolutional neural network is trained on images, and able to classify images in pictures and video streams.
