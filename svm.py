@@ -34,7 +34,7 @@ class SVM:
 
             # Randomly select a batch of samples
             A = torch.randint(0, s, (self.batch_size,))
-            ap_sum = 0
+            ap_sum = torch.zeros_like(self.w)
             nu = 1 / (self.lam * t)
             for i in A:
                 x_i = X[i]
