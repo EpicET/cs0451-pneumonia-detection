@@ -39,8 +39,8 @@ The project accomblished many of the goals that we set out to accomblish during 
 
 ## Group Contributions:
 Emmanuel: Set up most of the Github, worked on the Transformer
-Cameron: Worked on the Introduction, Abstract, and Values statement of the Blog Post in addition to the Support Vector Machine
-Robsan: Worked on the XGBooste Model
+Cameron: Worked on the Introduction, Abstract, and Values statement of the Blog Post in addition to the XGBoost Model
+Robsan: Worked on the Support Vector Machine 
 Lia: Worked on evaluation metrics for the models, embedding the images, conclusions, results, methods, materials, and group contributions. 
 
 
