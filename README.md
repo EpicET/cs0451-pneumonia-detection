@@ -19,12 +19,20 @@ Our group personally enjoyed and had an interest in each of the algorithms that 
 
 Based on our experiements, we believe if our project can help inform image classification tasks, especially those in the medical field, then the world can become a better place by being able to help people detect illnesses earlier and possibly save lives. 
 
-## Materials and Methods
+## Materials
 
 Our data comes from the Pneumonia Chest X-ray dataset in Kaggle. This data came from the Guangzhou Women and Children’s Medical Center. Samples were collected from patients and labels were created by pneumonia specialists, with two specialists making labels and then a third corroborating the label of normal or pneumonia. Our data lacks information regarding the severity or time-span of the pneumonia for positive cases, meaning that the model has no clear way of understanding which x-rays should be encoded closer or further away from the normal cases. Additionally, the dataset has a 64% / 36% split, with the majority of xrays containing positive cases of pneumonia. This bias happens to work out well for mitigating false negatives, however it makes models have more difficulty understanding when an xray is normal. 
 
-## Resources Required
-Our data is from Kaggle's [Chest X-Ray Images (Pneumonia) Dataset](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia) that our model will be trained on. The tools we will use are PyTorch and Jupyter Notebook.
+## Methods
+In our convolutional neural network for embedding the chest xrays, we utilized a variational autoencoder with contrastive loss. The model projects the vectors onto a 64 dimensional latent space through a gaussian disstribution, with KL-divergence, Contrastive loss, and cross entropy loss. The contrastive learning gives the latent dimensions more direction as to how negative pairs (pairs of data with different labels) should be encoded further apart in the data, while positive pairs should be encoded more similarly. The convolutional layers in the model are used to capture important spatial features from the images. After the images are vectorized, we use a Support Vector Machine, XGBooste, and Transformer to then classify the latent vectors as having pneumonia or being normal. We choose these binary classification models, since the latent space contains complex non-linear trends. All of these models are exceptional at handling non-linear data well. The image embedder was trained in batches of 32 images each. It was trained in google collab in order to take advantage of the GPU. This data was split into a test and train divsion. 5100 images were contained in the training data and 620 were contained in the test dataset. The test and training dataset allowed us to determine if the model was generalizing well to new data without taking too many data points from the training loop. Additionally, fivefold cross validation was employed to prevent overfitting on the test data. While auditing the models, we discovered that our models got between 75-78% accuracy, with extremely high precision rates of 86-93% and lower recall rates of 37-41%. This fits with the cost imbalance associtated with a false positive versus a false negative diagnosis. We traded a bit of accuracy in order to capture the majority of positive cases. 
+
+## Results 
+<img width="262" alt="image" src="https://github.com/user-attachments/assets/2bd2c6ef-4d1a-4994-ad37-e454924eee0d" />
+<img width="463" alt="image" src="https://github.com/user-attachments/assets/897d1e6c-110d-4291-bec7-f3ea6cc16fc5" />
+As iterated before, the models contained much higher precision rates than recall in order to catch more of the positive pneumonia cases due to their costliness as compared to the costs associated with missing a normal case. Within the models, The transformer did the best, with the highest Recall and Precision of 93% and 41% respectively. The F-1 Score of 57% suggests that the model was beginning to learn differences between the classes but still encountered much difficulty. This is also present the the 3-D PCA plot of the latent vectors where it becomes evident that many of the embeddings are caught in an overlapping region where both classes meet. The results suggest that the image embeddings need more fine tuning to increase accuracy and recall.
+
+
+
 
 ## What You Will Learn
 
