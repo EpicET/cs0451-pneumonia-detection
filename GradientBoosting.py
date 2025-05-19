@@ -25,7 +25,6 @@ class GradientBoostClassifier():
         preds = torch.squeeze(torch.full_like(y, self.log_odds))
     
         for _ in range(self.num_iterations): #Create regression tree weak learners, 
-
             pseudo_residuals = torch.squeeze(y) - self.sigmoid(preds)
             tree = DecisionTreeRegressor(max_depth=self.max_depth) 
             tree.fit(X_np, pseudo_residuals.numpy())

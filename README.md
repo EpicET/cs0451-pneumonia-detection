@@ -1,61 +1,50 @@
 # cs0451-pneumonia-detection
+
 By Cameron Hudson, Robsan Dinka, Lia Smith, and Emmanuel Towner
 
 ## Abstract
 
-The problem we are attempting to solve is the improvement of automated security systems using facial detection. There are alot of security usages for being able to detect faces in images and video streams, such as detecting when a person is in an unauthorized area, home security and more. The approach we are doing to solve this problem is to create and train machine learning algorithm to detect faces in images, and learn how to integrate this algorithm in face detection in video streams. To assess the model's accuracy, we will make a train-test split on our data and  will be looking for 80-85% accuracy on testing data. 
+[Our-Project](https://github.com/EpicET/cs0451-pneumonia-detection)
+Within our blog post, we created a neural network and implemented three different binary classifiers trained on chest x-ray image data to detect pneumonia based on images. We used convolution layers to convert images into latent vectors by which we could feed into our various machine learning models: a transformer, an SVM, and a gradient boosting model. Through analyzing the accuracy of each model, we discovered a similar accuracy between the models of around 78% on testing data.
 
+## Introduction
 
-## Motivation and Question
+Within our project, we wanted to compare 3 separate binary classification machine learning models, seeing which is best for an image classification task. Our project attempts to uncover what types of algorithms are best for binary image classification tasks using the pneumonia chest xray dataset, with our models being trained to discern pneumonia based on chest xray images only. This dataset demonstrates a case where finding the most optimal image classifcation algorithm is very important as it could result in saving a life. Our research could also inform which types of algorithms should be considered other important image classification tasks. Within [MobileNet Pneumonia Classification (2023 study)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10252226/), the researchers mainly focus on deep learning algorithms to tackle this same image classification task. Through their research, they discovered the MobileNet CCN gave the best accuracy on two datasets with values of 94.23% and 93.75%. In another study titled [CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning](https://arxiv.org/pdf/1711.05225), researchers create their own CNN known as CheXNet that detects pneumonia as well as other chest related illnesses (fibrosis, hernia, etc.) that which accuracies ranging from 0.7 to 0.9. With such a large focus on CNNs for this image classification, ww wanted to determine if other kinds of algorithms good for binary classifcation could also be useful image classifiers.  
 
-We have a Kaggle dataset that contains 16,700 facial scraped from Google Open Images. The dataset is divided into training and validation CSV files. These images will be used to train a convolutional neural network (CNN) designed to identify faces in images and webcam feeds. This algorithm could be particularly useful for security applications, allowing cameras to detect individuals who enter unauthorized areas, such as a store after it has closed, or for home security purposes.
+## Values Statement
 
-## Planned Deliverables
-Our project at its finished state will include a documented python package containing the code for the implementation and analysis of our convolutional neural network and camera integration, as well as a jupyter netwoork illustrating our codes usage.
+The potential users of our project would be primary care clinicians and radiologists who must regularly discern chest-related illnesses through X-rays. These machine learning models trained on chest X-ray image data may help them make more informed decisions if they are trying to discern specifically pneumonia.
 
-Full success: In a full success scenario, we will deliver a real-time image detection algorithm, which can utilize a camera to detect and trace a face within a video stream.
+I believe that our work contributes to AI researchers who are studying how to optimize for performance in image classification tasks, especially regarding medical concerns. If it can inform medical researchers on what machine learning models are best at medical image classification, they and their patients can also benefit from greater accuracy in detecting chest-related illnesses.
 
-Partial success: In a partial success scenario. Our algorithm will be able to classify images as containing or not containing a face with 80-85% accuracy.
+Because our models are quite poor at predicting images without pneumonia correctly, they could falsely flag patients as having pneumonia, which may lead them to incur unnecessary medical expenses. Based on the background of these patients, this could seriously affect patients who struggle financially.
 
-model fairness: evaluating the fairness of the model via false positive rates and sufficiency of factors such as race.
+Our group personally enjoyed and had an interest in each of the algorithms that we worked on and took this project as a learning experience to expand our knowledge on what image vectorization and binary classification algorithms are out there and how they differ from what we have learned through our class assignments.
 
-## Resources Required
+Based on our experiments, we believe if our project can help inform image classification tasks, especially those in the medical field, then the world can become a better place by being able to help people detect illnesses earlier and possibly save lives.
 
-Our data is from Kaggle's [Face-Detection-Dataset](https://www.kaggle.com/datasets/fareselmenshawii/face-detection-dataset) that our model will be trained on. The tools we will use are PyTorch and Jupyter Notebook.
+## Materials
 
-## What You Will Learn
+Our data comes from the Pneumonia Chest X-ray dataset on Kaggle. This data came from the Guangzhou Women and Children’s Medical Center. Samples were collected from patients and labels were created by pneumonia specialists, with two specialists making labels and then a third corroborating the label of normal or pneumonia. Our data lacks information regarding the severity or time span of the pneumonia for positive cases, meaning that the model has no clear way of understanding which X-rays should be encoded closer or further away from the normal cases. Additionally, the dataset has a 64% / 36% split, with the majority of X-rays containing positive cases of pneumonia. This bias happens to work out well for mitigating false negatives; however, it makes models have more difficulty understanding when an X-ray is normal.
 
-We all intend to improve our skills using Git version control, improve our teamworking skills, and learn the implementation of a convolutional neural network and
-its application in facial detection.
+## Methods
 
-Robsan Dinka: Specifically intrested in the math that goes into the implementation of a convolutional neural network, and wants to improve their skills with git command line.
+In our convolutional neural network for embedding the chest X-rays, we utilized a variational autoencoder with contrastive loss. The model projects the vectors onto a 64-dimensional latent space through a Gaussian distribution, with KL-divergence, contrastive loss, and cross-entropy loss. The contrastive learning gives the latent dimensions more direction as to how negative pairs (pairs of data with different labels) should be encoded further apart in the data, while positive pairs should be encoded more similarly. The convolutional layers in the model are used to capture important spatial features from the images. After the images are vectorized, we use a Support Vector Machine, XGBoost, and Transformer to then classify the latent vectors as having pneumonia or being normal. We chose these binary classification models, since the latent space contains complex non-linear trends. All of these models are exceptional at handling non-linear data well. The image embedder was trained in batches of 32 images each. It was trained in Google Colab in order to take advantage of the GPU. This data was split into a test and train division. 5100 images were contained in the training data and 620 were contained in the test dataset. The test and training dataset allowed us to determine if the model was generalizing well to new data without taking too many data points from the training loop. Additionally, fivefold cross-validation was employed to prevent overfitting on the test data. While auditing the models, we discovered that our models got between 75–78% accuracy, with extremely high precision rates of 86–93% and lower recall rates of 37–41%. This fits with the cost imbalance associated with a false positive versus a false negative diagnosis. We traded a bit of accuracy in order to capture the majority of positive cases.
 
-Cameron Hudson: Specifically interested in learning how we will use the algorithm to detect faces in a video stream, how to utilize our laptop's built-in camera and use our algorithm implementation in tandem. 
+## Results
 
-Emmanuel Towner: Has a high-level understanding of how neural networks work, and is interesting in how convolution neural networks differ from regular neural networks. Also wants to get better at the git command line.
+![image](https://github.com/user-attachments/assets/2bd2c6ef-4d1a-4994-ad37-e454924eee0d)
+![image](https://github.com/user-attachments/assets/897d1e6c-110d-4291-bec7-f3ea6cc16fc5)
 
-Lia Smith: has a little experience with convolutional layers but is very excited to work more with them in an unsupervised learning framework. Additionally, is excited in encoding video data. 
+As demonstrated before, the models contained much higher precision rates than recall in order to catch more of the positive pneumonia cases due to their costliness as compared to the costs associated with missing a normal case. Within the models, the transformer did the best, with the highest recall and precision of 93% and 41% respectively. The F-1 score of 57% suggests that the model was beginning to learn differences between the classes but still encountered much difficulty. This is also present in the 3-D PCA plot of the latent vectors where it becomes evident that many of the embeddings are caught in an overlapping region where both classes meet. The results suggest that the image embeddings need more fine-tuning to increase accuracy and recall.
 
-## Risk Statement
+## Conclusions
 
-1. Transforming our static image algorithm to work with webcams may be more complex than we originally anticipated.  
-2. There is a risk that the data consists of very homogeneous facial images, which could hinder our ability to accurately identify diverse groups of people 
+The project accomplished many of the goals that we set out to accomplish during the duration of this project and also failed to meet others. We got a working convolutional neural network to embed the images and learn important features of those images. We correctly identify 93% of all pneumonia cases. On the other hand, we correctly identify less than half of all normal cases. This project demonstrates the difficulty of complex machine learning tasks without good computational resources. Running and auditing the CNN alone takes two hours per run with a GPU. Due to this constraint, we were unable to readily take advantage of all of the data available. Additionally, the binary classification models also took 5–15 minutes depending on the model. The most apparent hurdle in this project was creating a complex model while also being able to run it in a reasonable amount of time. Other pneumonia binary classification projects are able to get higher accuracy through the usage of pre-made ResNet models. These models are trained on millions of images and use residual connections to improve the performance of neural networks. If we had more time, we would do a more thorough error analysis of misclassified normal images to understand what features the model is missing and improve the architecture to capture that feature. Additionally, we would utilize more of the training data without run-time constraints and try adopting residual neural network architecture to improve performance.
 
-## Ethics Statement
-1. Our model will benefit companies involved in home security, surveillance, and even social media platforms. These companies can use our model to enhance their security systems which will make homeowners feel more secure. For example, home security companies can use our model to detect intruders in real-time and alert homeowners. Social media platforms can use our model to enhance user experience by providing filters and effects that modify faces in images and videos.
-2. On the other hand, our model may exclude benefit or even harm marginalized groups, general public, and activists. For example, our model may have higher error rates for marginalized groups if our training data is not reflective of the population it is used on. Additionally, our model may be used to collect data on individuals without their consent, violating their privacy. This can be especially harmful for activists and protesters who may be targeted by law enforcement agencies.
-3. There are many applications of facial detection systems such as facial recognition, photo filters, surveillance and more. Overall, our model will be more beneficial than harmful, because it will improve security. However, we must be cautious about the ethical implications because it can be used to violate privacy. We believe that the increased security our model brings outweighs the potential harm caused by enhanced by facial data collection. 
+## Group Contributions
 
-The following are assumptions that we have made while doing this project:
-* People who use our model will do so ethically and responsibly (ie. no data collection without consent, no tracking, respect privacy, etc.)
-* Our model will be able to detect faces accurately regardless of race, gender, lighting, and other factors.
-* The cameras capture clear images and videos.
-* The data used to train our model is diverse and representative of the population it is being used on
-
-
-
-
-## Tentative Timeline
-For Week 3: Implementation of convolutional neural network is in a working, runnable state.
-
-For Week 6: Our implementation of the convolutional neural network is trained on images, and able to classify images in pictures and video streams.
+Emmanuel: Set up most of the Github, worked on the Transformer
+Cameron: Worked on the Introduction, Abstract, and Values statement of the Blog Post in addition to the XGBoost Model
+Robsan: Worked on the Support Vector Machine
+Lia: Worked on evaluation metrics for the models, embedding the images, conclusions, results, methods, materials, and group contributions.
